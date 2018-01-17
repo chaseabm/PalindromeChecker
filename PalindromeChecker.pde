@@ -14,16 +14,39 @@ public void setup()
     }
   }
 }
+
 public boolean palindrome(String word)
 {
-  //your code here
+  if(palindromifier(word).equals(reverse(palindromifier(word))))
+  {
+    return true;
+  }
   return false;
 }
+
+public String palindromifier(String word)
+{
+  String perfectForm = "";
+  for (int i = 0; i < word.length(); i++)
+  {
+    char symbol = word.substring(i, i+1).charAt(0);
+    if ((!word.substring(i, i+1).equals(" ")) && Character.isLetter(symbol) == true)
+    {
+      perfectForm += word.substring(i, i+1);
+    }
+  }
+  perfectForm = perfectForm.toLowerCase();
+  return perfectForm;
+}
+
 public String reverse(String str)
 {
-    String sNew = new String();
-    //your code here
-    return sNew;
+  String sReversed = "";
+  for (int i = str.length() - 1; i >= 0; i--)
+  {
+    sReversed += str.charAt(i);
+  }
+  return sReversed;
 }
 
 
